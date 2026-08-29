@@ -66,6 +66,50 @@ A cross-platform React Native enterprise mobile application for Dolphin360Suite 
    npm run ios
    ```
 
+---
+
+## Redmi / Xiaomi (MIUI & HyperOS) Device Setup
+
+To run and debug the application on physical Redmi / Xiaomi / POCO devices, follow the setup steps and commands below:
+
+### 1. Enable Developer Options
+1. Open **Settings** on your Redmi device.
+2. Go to **About phone**.
+3. Tap on **MIUI version** (or **OS version** on HyperOS) repeatedly **7 times** until you see *"You are now a developer!"*.
+
+### 2. Enable Required MIUI Developer Settings
+1. Go to **Settings** > **Additional settings** > **Developer options**.
+2. Turn **ON** the following toggles:
+   - **USB debugging**: `Enabled`
+   - **Install via USB**: `Enabled` *(Crucial: Allows installing the debug APK via ADB)*
+   - **USB debugging (Security settings)**: `Enabled` *(Allows permission management via ADB)*
+   - *(Optional)*: If app installation fails with `INSTALL_FAILED_USER_RESTRICTED`, scroll to the bottom and turn **OFF** `MIUI Optimization` / `System Optimization`.
+
+### 3. Connect & Run Commands
+
+1. **Verify device connection:**
+   ```bash
+   adb devices
+   ```
+   *(Ensure your Redmi device appears as `device`, not `unauthorized`. Accept the USB debugging prompt on your phone if prompted).*
+
+2. **Reverse Metro bundler port (Required for Redmi / MIUI):**
+   ```bash
+   adb reverse tcp:8081 tcp:8081
+   ```
+
+3. **Build and launch on your connected Redmi phone:**
+   ```bash
+   npm run android
+   ```
+
+4. **Restart ADB server (if device is offline/not detected):**
+   ```bash
+   adb kill-server && adb start-server
+   ```
+
+---
+
 ## Project Structure
 
 ```

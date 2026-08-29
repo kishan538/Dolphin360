@@ -5,6 +5,7 @@
 # Xcode
 #
 build/
+ios/build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -13,24 +14,28 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
+xcuserdata/
+*.xcuserstate
 *.xccheckout
 *.moved-aside
 DerivedData
 *.hmap
 *.ipa
-*.xcuserstate
 **/.xcode.env.local
 
 # Android/IntelliJ
 #
 build/
+android/build/
+android/app/build/
 .idea
-.gradle
+.gradle/
+android/.gradle/
 local.properties
 *.iml
 *.hprof
 .cxx/
+android/app/.cxx/
 *.keystore
 !debug.keystore
 .kotlin/
@@ -40,6 +45,12 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# Environment variables
+#
+.env
+.env.*
+!.env.example
 
 # fastlane
 #
@@ -58,6 +69,7 @@ yarn-error.log
 
 # Ruby / CocoaPods
 **/Pods/
+ios/Pods/
 /vendor/bundle/
 
 # Temporary files created by Metro to check the health of the file watcher
@@ -73,3 +85,4 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
